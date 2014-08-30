@@ -40,10 +40,9 @@ class Todo extends CakeMigration {
 					'todo_block_id' => array('type' => 'integer', 'null' => false, 'default' => null),
 					'status' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 3),
 					'language_id' => array('type' => 'integer', 'null' => false, 'default' => '2'),
-					'is_auto_translation' => array('type' => 'boolean', 'null' => false, 'default' => false, 'length' => 1),
+					'is_auto_translation' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
 					'translation_engine' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 					'title' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
-					'content' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 					'created_user' => array('type' => 'integer', 'null' => true, 'default' => null),
 					'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
 					'modified_user' => array('type' => 'integer', 'null' => true, 'default' => null),
@@ -55,53 +54,93 @@ class Todo extends CakeMigration {
 				),
 				'todo_blocks' => array(
 					'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-					'block_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'unique'),
+					'block_id' => array('type' => 'integer', 'null' => false, 'default' => null),
 					'created_user' => array('type' => 'integer', 'null' => true, 'default' => null),
 					'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
 					'modified_user' => array('type' => 'integer', 'null' => true, 'default' => null),
 					'modified' => array('type' => 'datetime', 'null' => true, 'default' => null),
 					'indexes' => array(
-						'PRIMARY' => array('column' => 'id', 'unique' => 1)
+						'PRIMARY' => array('column' => 'id', 'unique' => 1),
 					),
 					'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB'),
 				),
-				'tod_settings' => array(
+				'todo_categories' => array(
 					'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-					'todo_block_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'unique'),
+					'todo_block_id' => array('type' => 'integer', 'null' => false, 'default' => null),
+					'language_id' => array('type' => 'integer', 'null' => false, 'default' => '2'),
+					'is_auto_translation' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
+					'translation_engine' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+					'name' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+					'weight' => array('type' => 'integer', 'null' => true, 'default' => null),
 					'created_user' => array('type' => 'integer', 'null' => true, 'default' => null),
 					'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
 					'modified_user' => array('type' => 'integer', 'null' => true, 'default' => null),
 					'modified' => array('type' => 'datetime', 'null' => true, 'default' => null),
 					'indexes' => array(
-						'PRIMARY' => array('column' => 'id', 'unique' => 1)
+						'PRIMARY' => array('column' => 'id', 'unique' => 1),
 					),
 					'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB'),
 				),
-				'tod_part_settings' => array(
+				'todo_frame_settings' => array(
 					'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-					'todo_block_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'unique'),
+					'frame_id' => array('type' => 'integer', 'null' => false, 'default' => null),
+					'default_sort' => array('type' => 'integer', 'null' => false, 'default' => '0'),
+					'used_category' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
+					'created_user' => array('type' => 'integer', 'null' => true, 'default' => null),
+					'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
+					'modified_user' => array('type' => 'integer', 'null' => true, 'default' => null),
+					'modified' => array('type' => 'datetime', 'null' => true, 'default' => null),
+					'indexes' => array(
+						'PRIMARY' => array('column' => 'id', 'unique' => 1),
+					),
+					'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB'),
+				),
+				'todo_part_settings' => array(
+					'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
+					'todo_block_id' => array('type' => 'integer', 'null' => false, 'default' => null),
 					'part_id' => array('type' => 'integer', 'null' => false, 'default' => '0'),
-					'readable_content' => array('type' => 'boolean', 'null' => false, 'default' => false),
-					'editable_content' => array('type' => 'boolean', 'null' => false, 'default' => false),
-					'creatable_content' => array('type' => 'boolean', 'null' => false, 'default' => false),
-					'publishable_content' => array('type' => 'boolean', 'null' => false, 'default' => false),
+					'readable_content' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
+					'editable_content' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
+					'creatable_content' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
+					'publishable_content' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
 					'created_user' => array('type' => 'integer', 'null' => true, 'default' => null),
 					'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
 					'modified_user' => array('type' => 'integer', 'null' => true, 'default' => null),
 					'modified' => array('type' => 'datetime', 'null' => true, 'default' => null),
 					'indexes' => array(
-						'PRIMARY' => array('column' => 'id', 'unique' => 1)
+						'PRIMARY' => array('column' => 'id', 'unique' => 1),
 					),
 					'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB'),
 				),
-			)
+				'todo_tasks' => array(
+					'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
+					'todo_id' => array('type' => 'integer', 'null' => false, 'default' => null),
+					'assigned' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+					'priority' => array('type' => 'integer', 'null' => false, 'default' => '0'),
+					'status' => array('type' => 'integer', 'null' => false, 'default' => '0'),
+					'period' => array('type' => 'datetime', 'null' => true, 'default' => null),
+					'todo_category_id' => array('type' => 'integer', 'null' => false, 'default' => '0'),
+					'progress' => array('type' => 'integer', 'null' => true, 'default' => '0'),
+					'contents' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+					'created_user' => array('type' => 'integer', 'null' => true, 'default' => null),
+					'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
+					'modified_user' => array('type' => 'integer', 'null' => true, 'default' => null),
+					'modified' => array('type' => 'datetime', 'null' => true, 'default' => null),
+					'indexes' => array(
+						'PRIMARY' => array('column' => 'id', 'unique' => 1),
+					),
+					'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB'),
+				),
+			),
 		),
 		'down' => array(
 			'drop_table' => array(
 				'todo',
 				'todo_blocks',
-				'tod_settings',
-				'tod_part_settings',
+				'todo_categories',
+				'todo_frame_settings'
+				'todo_part_settings',
+				'todo_tasks',
 			)
 		)
 	);
