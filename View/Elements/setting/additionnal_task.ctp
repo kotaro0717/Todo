@@ -10,7 +10,7 @@
  * @package app.Plugin.Todo.View.Todo
  */
 ?>
-<div ng-controller="Announcements.setting">
+<div ng-controller="Todo.additionalTask">
 	<div class="modal fade todo-additional-task"
 		 role="dialog"
 		 aria-hidden="true"
