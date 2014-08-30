@@ -60,6 +60,11 @@ class TodoController extends TodoAppController {
  * @return CakeResponse
  */
 	public function view($frameId = 0, $lang = '') {
+		//フレーム初期化処理
+		if (! $this->_initializeFrame($frameId, $lang)) {
+			$this->response->statusCode(400);
+			return $this->render(false);
+		}
 		return $this->render('Todo/view');
 	}
 

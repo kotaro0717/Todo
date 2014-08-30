@@ -8,8 +8,8 @@
 
 	<?php if ($contentEditable): ?>
 		<button class='btn btn-primary'
-			ng-click='getEditor(<?php echo (int)$frameId; ?>)'
+			ng-click='openAdditionalTask(<?php echo (int)$frameId; ?>)'
 			ng-disabled='sendLock'
-			><span class='glyphicon glyphicon-pencil'> <?php echo __d('todo', 'Edit'); ?></span></button>
+			><span class='glyphicon glyphicon-pencil'> <?php echo __d('todo', 'Add'); ?></span></button>
 	<?php endif; ?>
 </p>
