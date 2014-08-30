@@ -1,9 +1,7 @@
 <?php
 /**
- * Tod Model
+ * TodoPartSetting Model
  *
- * @property Tod $Tod
- * @property Language $Language
  * @property Block $Block
  * @property Part $Part
  *
@@ -18,17 +16,15 @@
 App::uses('TodoAppModel', 'Todo.Model');
 
 /**
- * Tod Model
+ * TodoPart Model
  *
- * @property Tod $Tod
- * @property Language $Language
  * @property Block $Block
  * @property Part $Part
  *
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
  * @package app.Plugin.Todo.Model
  */
-class Tod extends TodoAppModel {
+class TodoPartSetting extends TodoAppModel {
 
 /**
  * Use database config
@@ -36,7 +32,7 @@ class Tod extends TodoAppModel {
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
  * @var string
  */
-	public $useDbConfig = 'master';
+	//public $useDbConfig = 'master';
 
 /**
  * Validation rules
@@ -51,19 +47,49 @@ class Tod extends TodoAppModel {
 				'message' => 'Security Error! Unauthorized input.',
 			),
 		),
-		'status' => array(
+		'part_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				'message' => 'Security Error! Unauthorized input.',
+			),
+		),
+		'readable_content' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				'message' => 'Security Error! Unauthorized input.',
 			),
 			'range' => array(
-				'rule' => array('range', 0, 4),
+				'rule' => array('range', 0, 3),
 				'message' => 'Security Error! Unauthorized input.',
 			),
 		),
-		'language_id' => array(
+		'editable_content' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
+				'message' => 'Security Error! Unauthorized input.',
+			),
+			'range' => array(
+				'rule' => array('range', 0, 3),
+				'message' => 'Security Error! Unauthorized input.',
+			),
+		),
+		'creatable_content' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				'message' => 'Security Error! Unauthorized input.',
+			),
+			'range' => array(
+				'rule' => array('range', 0, 3),
+				'message' => 'Security Error! Unauthorized input.',
+			),
+		),
+		'publishable_content' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				'message' => 'Security Error! Unauthorized input.',
+			),
+			'range' => array(
+				'rule' => array('range', 0, 3),
 				'message' => 'Security Error! Unauthorized input.',
 			),
 		),
@@ -83,13 +109,12 @@ class Tod extends TodoAppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Language' => array(
-			'className' => 'Language',
-			'foreignKey' => 'language_id',
+		'Part' => array(
+			'className' => 'Part',
+			'foreignKey' => 'part_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		)
 	);
-
 }

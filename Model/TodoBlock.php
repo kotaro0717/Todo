@@ -30,7 +30,7 @@ class TodoBlock extends TodoAppModel {
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
  * @var string
  */
-	public $useDbConfig = 'master';
+	//public $useDbConfig = 'master';
 
 /**
  * Validation rules
@@ -69,8 +69,8 @@ class TodoBlock extends TodoAppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Tod' => array(
-			'className' => 'Tod',
+		'Todo' => array(
+			'className' => 'Todo',
 			'foreignKey' => 'todo_block_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -82,8 +82,8 @@ class TodoBlock extends TodoAppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'TodPartSetting' => array(
-			'className' => 'TodPartSetting',
+		'TodoPartSetting' => array(
+			'className' => 'TodoPartSetting',
 			'foreignKey' => 'todo_block_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -95,8 +95,8 @@ class TodoBlock extends TodoAppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'TodSetting' => array(
-			'className' => 'TodSetting',
+		'TodoSetting' => array(
+			'className' => 'TodoSetting',
 			'foreignKey' => 'todo_block_id',
 			'dependent' => false,
 			'conditions' => '',

@@ -1,6 +1,6 @@
 <?php
 /**
- * TodSetting Model
+ * TodoSetting Model
  *
  * @property Block $Block
  *
@@ -30,7 +30,7 @@ class TodSetting extends TodoAppModel {
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
  * @var string
  */
-	public $useDbConfig = 'master';
+	//public $useDbConfig = 'master';
 
 /**
  * Validation rules
