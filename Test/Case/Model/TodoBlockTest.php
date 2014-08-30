@@ -27,10 +27,10 @@ class TodoBlockTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'plugin.todo.tod',
+		'plugin.todo.todo',
 		'plugin.todo.todo_block',
-		'plugin.todo.tod_part_setting',
-		'plugin.todo.tod_setting',
+		'plugin.todo.todo_part_setting',
+		'plugin.todo.todo_setting',
 		'plugin.todo.block',
 		'plugin.todo.language',
 		'plugin.todo.blocks_language'

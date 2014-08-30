@@ -1,6 +1,6 @@
 <?php
 /**
- * TodPartSettingTest Test Case
+ * TodoPartSettingTest Test Case
  *
  * @author Noriko Arai <arai@nii.ac.jp>
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
@@ -10,7 +10,7 @@
  * @package app.Plugin.Todo.Test.Model.Case
  */
 
-App::uses('TodPartSetting', 'Todo.Model');
+App::uses('TodoPartSetting', 'Todo.Model');
 
 /**
  * TodoPart Test Case
@@ -18,7 +18,7 @@ App::uses('TodPartSetting', 'Todo.Model');
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
  * @package app.Plugin.Todo.Model
  */
-class TodPartSettingTest extends CakeTestCase {
+class TodoPartSettingTest extends CakeTestCase {
 
 /**
  * Fixtures
@@ -27,7 +27,7 @@ class TodPartSettingTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'plugin.todo.tod_part_setting',
+		'plugin.todo.todo_part_setting',
 		'plugin.todo.block',
 		'plugin.todo.language',
 		'plugin.todo.blocks_language',
@@ -42,7 +42,7 @@ class TodPartSettingTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$this->TodPartSetting = ClassRegistry::init('Todo.TodPartSetting');
+		$this->TodoPartSetting = ClassRegistry::init('Todo.TodoPartSetting');
 	}
 
 /**
@@ -51,7 +51,7 @@ class TodPartSettingTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		unset($this->TodPartSetting);
+		unset($this->TodoPartSetting);
 
 		parent::tearDown();
 	}
@@ -63,7 +63,7 @@ class TodPartSettingTest extends CakeTestCase {
  */
 	public function testFindById() {
 		$id = 1;
-		$rtn = $this->TodPartSetting->findById($id);
+		$rtn = $this->TodoPartSetting->findById($id);
 		$this->assertTrue(is_array($rtn));
 	}
 

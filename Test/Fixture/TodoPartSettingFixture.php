@@ -1,6 +1,6 @@
 <?php
 /**
- * TodPartSettingFixture
+ * TodoPartSettingFixture
  *
  * @author Noriko Arai <arai@nii.ac.jp>
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
@@ -11,12 +11,12 @@
  */
 
 /**
- * TodPartSettingFixture
+ * TodoPartSettingFixture
  *
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
  * @package app.Plugin.Todo.Model
  */
-class TodPartSettingFixture extends CakeTestFixture {
+class TodoPartSettingFixture extends CakeTestFixture {
 
 /**
  * Fields
