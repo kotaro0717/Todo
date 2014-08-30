@@ -1,0 +1,23 @@
+.todo-table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+}
+.todo-table-responsive > .table {
+    margin-bottom: 0;
+}
+.todo-table-responsive > .table > thead > tr > th,
+.todo-table-responsive > .table > tbody > tr > th,
+.todo-table-responsive > .table > tfoot > tr > th,
+.todo-table-responsive > .table > thead > tr > td,
+.todo-table-responsive > .table > tbody > tr > td,
+.todo-table-responsive > .table > tfoot > tr > td {
+    white-space: nowrap;
+}
+.todo-table-responsive > .table-bordered {
+    border: 0;
+}
