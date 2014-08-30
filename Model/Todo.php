@@ -29,6 +29,13 @@ App::uses('TodoAppModel', 'Todo.Model');
  * @package app.Plugin.Todo.Model
  */
 class Todo extends TodoAppModel {
+/**
+ * table name
+ *
+ * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
+ * @var     string
+ */
+	public $useTable = 'todo';
 
 /**
  * Use database config
@@ -36,7 +43,7 @@ class Todo extends TodoAppModel {
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
  * @var string
  */
-	public $useDbConfig = 'master';
+	//public $useDbConfig = 'master';
 
 /**
  * Validation rules
@@ -48,16 +55,6 @@ class Todo extends TodoAppModel {
 		'todo_block_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'message' => 'Security Error! Unauthorized input.',
-			),
-		),
-		'status' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				'message' => 'Security Error! Unauthorized input.',
-			),
-			'range' => array(
-				'rule' => array('range', 0, 4),
 				'message' => 'Security Error! Unauthorized input.',
 			),
 		),
@@ -91,5 +88,45 @@ class Todo extends TodoAppModel {
 			'order' => ''
 		)
 	);
+
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'TodoTask' => array(
+			'className' => 'Todo.TodoTask',
+			'foreignKey' => 'todo_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+
+	);
+/**
+ * get todo tasks
+ *
+ * @param int $blockId blocks.id
+ * @param int $languageId languages.id
+ * @author Kotaro Hokada <kotaro.hokada@gmail.com>
+ * @return array TodoTasks
+ */
+	public function getTasks($blockId, $languageId) {
+		$conditions = array(
+			'block_id' => $blockId,
+			'language_id' => $languageId,
+		);
+		return $this->find('first', array(
+			'conditions' => $conditions,
+			//'order' => $this->name . '.id DESC',
+		));
+	}
 
 }

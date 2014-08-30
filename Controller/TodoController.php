@@ -27,6 +27,8 @@ class TodoController extends TodoAppController {
  * @var array
  */
 	public $uses = array(
+		'Frames.Frame',
+		'Todo.Todo',
 		'Todo.TodoTask'
 	);
 
@@ -55,6 +57,17 @@ class TodoController extends TodoAppController {
 			$this->response->statusCode(400);
 			return $this->render(false);
 		}
+		$params = array(
+			'fields' => array('Frame.block_id'),
+			'conditions' => array('id' => $frameId),
+			'recursive' => -1,
+		);
+		$frame = $this->Frame->find('first', $params);
+		if (! $frame) {
+			return;
+		}
+
+		$this->set('todo_tasks', $this->Todo->getTasks($frame['Frame']['block_id'], $lang));
 	}
 
 }
