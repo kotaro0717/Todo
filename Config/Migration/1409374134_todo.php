@@ -38,7 +38,6 @@ class Todo extends CakeMigration {
 				'todo' => array(
 					'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
 					'todo_block_id' => array('type' => 'integer', 'null' => false, 'default' => null),
-					'status' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 3),
 					'language_id' => array('type' => 'integer', 'null' => false, 'default' => '2'),
 					'is_auto_translation' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
 					'translation_engine' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
@@ -117,7 +116,7 @@ class Todo extends CakeMigration {
 					'todo_id' => array('type' => 'integer', 'null' => false, 'default' => null),
 					'assigned' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 					'priority' => array('type' => 'integer', 'null' => false, 'default' => '0'),
-					'status' => array('type' => 'integer', 'null' => false, 'default' => '0'),
+					'completed' => array('type' => 'boolean', 'null' => false, 'default' => '0'),
 					'period' => array('type' => 'datetime', 'null' => true, 'default' => null),
 					'todo_category_id' => array('type' => 'integer', 'null' => false, 'default' => '0'),
 					'progress' => array('type' => 'integer', 'null' => true, 'default' => '0'),
@@ -138,7 +137,7 @@ class Todo extends CakeMigration {
 				'todo',
 				'todo_blocks',
 				'todo_categories',
-				'todo_frame_settings'
+				'todo_frame_settings',
 				'todo_part_settings',
 				'todo_tasks',
 			)
