@@ -22,7 +22,7 @@ App::uses('TodoAppModel', 'Todo.Model');
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
  * @package app.Plugin.Todo.Model
  */
-class TodSetting extends TodoAppModel {
+class TodoSetting extends TodoAppModel {
 
 /**
  * Use database config

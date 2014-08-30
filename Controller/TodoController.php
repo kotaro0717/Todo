@@ -26,7 +26,9 @@ class TodoController extends TodoAppController {
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
  * @var array
  */
-	//public $uses = array();
+	public $uses = array(
+		'Todo.TodoTask'
+	);
 
 /**
  * beforeFilter
