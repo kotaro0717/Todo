@@ -120,7 +120,7 @@ class Todo extends CakeMigration {
 					'period' => array('type' => 'datetime', 'null' => true, 'default' => null),
 					'todo_category_id' => array('type' => 'integer', 'null' => false, 'default' => '0'),
 					'progress' => array('type' => 'integer', 'null' => true, 'default' => '0'),
-					'contents' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+					'content' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 					'created_user' => array('type' => 'integer', 'null' => true, 'default' => null),
 					'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
 					'modified_user' => array('type' => 'integer', 'null' => true, 'default' => null),

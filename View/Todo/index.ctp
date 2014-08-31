@@ -54,7 +54,7 @@
 					<?php echo $task['period']; ?>
 				</td>
 				<td>
-					<?php echo $task['contents']; ?>
+					<?php echo $task['content']; ?>
 				</td>
 				<td>
 					<?php echo $task['progress']; ?>
