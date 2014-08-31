@@ -29,11 +29,12 @@ App::uses('TodoAppModel', 'Todo.Model');
  * @package app.Plugin.Todo.Model
  */
 class Todo extends TodoAppModel {
+
 /**
  * table name
  *
- * @author  Shohei Nakajima <nakajimashouhei@gmail.com>
- * @var     string
+ * @author Kotaro Hokada <kotaro.hokada@gmail.com>
+ * @var string
  */
 	public $useTable = 'todo';
 
@@ -110,6 +111,7 @@ class Todo extends TodoAppModel {
 		),
 
 	);
+
 /**
  * get todo tasks
  *
@@ -127,7 +129,6 @@ class Todo extends TodoAppModel {
 			'conditions' => $conditions,
 			//'order' => $this->name . '.id DESC',
 		));
-
 	}
 
 }

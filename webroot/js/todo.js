@@ -31,19 +31,21 @@ NetCommonsApp.controller('Todo',
       };
 
       /**
-       * ブロック設定のモーダルを表示させる。
+       * Open Additional Task
        *
-       * @param void
+       * @return {void}
        */
       $scope.openAdditionalTask = function() {
-        $('.todo-additional-task:first', '#frame-wrap-' + $scope.frameId).modal('show');
+        $('.todo-additional-task:first',
+          '#frame-wrap-' + $scope.frameId).modal('show');
       };
 
       /**
-       * ブロック設定のモーダルを表示させる。
+       * Open Block Setting
        *
-       * @param void
+       * @return {void}
        */
-       $scope.openBlockSetting = function() {
-       };
-    });
+      $scope.openBlockSetting = function() {
+      };
+    }
+);

@@ -20,24 +20,24 @@ App::uses('TodoAppModel', 'Todo.Model');
  */
 class TodoTask extends TodoAppModel {
 
-	/**
-	 * priority low
-	 *
-	 * @var int
-	 */
+/**
+ * priority low
+ *
+ * @var int
+ */
 	const PRIORITY_LOW = 0;
 
-	/**
-	 * priority normal
-	 *
-	 * @var int
-	 */
+/**
+ * priority normal
+ *
+ * @var int
+ */
 	const PRIORITY_NORMAL = 1;
 
-	/**
-	 * priority high
-	 *
-	 * @var int
-	 */
+/**
+ * priority high
+ *
+ * @var int
+ */
 	const PRIORITY_HIGH = 2;
 }

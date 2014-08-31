@@ -92,7 +92,7 @@ class TodoSchema extends CakeSchema {
 	);
 
 /**
- * tod_settings table
+ * todo_settings table
  *
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
  * @var array
@@ -114,7 +114,7 @@ class TodoSchema extends CakeSchema {
 	*/
 
 /**
- * tod_part_settings table
+ * todo_part_settings table
  *
  * @author Kotaro Hokada <kotaro.hokada@gmail.com>
  * @var array
